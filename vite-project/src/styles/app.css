@@ -1,0 +1,183 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-fw: 700;
+    --secondary-fw: 500;
+    --thirdary-fw: 400;
+    --primary-fs: 15px;
+    --primary-very-dark-magenta: hsl(300, 43%, 22%);
+    --primary-soft-pink: hsl(333, 80%, 67%);
+    --neutral-dark-grayish-magenta: hsl(303, 10%, 53%);
+    --neutral-light-grayish-magenta: hsl(300, 24%, 96%);
+    --neutral-white: hsl(0, 0%, 100%);
+}
+
+.app {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: var(--thirdary-fw);
+    font-size: var(--primary-fs);
+    background-color: var(--neutral-white);
+    padding-block: 5em;
+    color: var(--primary-very-dark-magenta);
+    z-index: 1;
+}
+
+.app::before, .app::after {
+    content: "";
+    position: absolute;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.app::before {
+    top: 0;
+    left: 0;
+    width: 584px;
+    height: 362px;
+    background-image: url("../images/bg-pattern-top-desktop.svg");
+}
+
+.app::after {
+    bottom: 0;
+    right: 0;
+    width: 1085px;
+    height: 673px;
+    background-image: url("../images/bg-pattern-bottom-desktop.svg");
+}
+
+.app .container {
+    width: min(90%, 80rem);
+    margin-inline: auto;
+}
+
+.app .intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app .intro header {
+    flex-basis: 30%;
+}
+
+.app .intro header .title {
+    font-size: 4em;
+    line-height: .9em;
+}
+
+.app .intro header .detail {
+    margin-top: 1em;
+    color: var(--neutral-dark-grayish-magenta);
+    font-weight: var(--secondary-fw);
+    line-height: 1.2em;
+}
+
+.app .intro section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex-basis: 40%;
+}
+
+.app .intro section .rated {
+    background-color: var(--neutral-light-grayish-magenta);
+    padding: 1em;
+    border-radius: .5em;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    font-weight: var(--primary-fw);
+    padding-right: 4em;
+}
+
+.app .intro section .rated:first-child {
+    align-self: flex-start;
+}
+
+.app .intro section .rated:last-child {
+    align-self: flex-end;
+}
+
+.app .intro section .rated .star-icon > *:not(:first-child) {
+    margin-left: .5em;
+}
+
+.app article {
+    margin-top: 4em;
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+    min-height: 250px;
+}
+
+@media screen and (max-width:1440px) {
+    .app::before {
+        top: 0;
+        left: 0;
+        width: min(90%,374px);
+        height: 232px;
+        background-size: cover;
+        background-image: url("../images/bg-pattern-top-mobile.svg");
+    }
+    
+    .app::after {
+        bottom: 0;
+        right: 0;
+        width: 375px;
+        height: 503px;
+        background-image: url("../images/bg-pattern-bottom-mobile.svg");
+    }
+
+    .app .container {
+        width: min(90%, 25rem);
+    }
+
+    .app .intro {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app .intro header {
+        text-align: center;
+    }
+
+    .app .intro header .title {
+        font-size: 3em;
+        line-height: .9em;
+    }
+
+    .app .intro section {
+        margin-top: 4em;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1em;
+    }
+
+    .app .intro section .rated {
+        flex-direction: column;
+        width: 100%;
+        padding-right: 1em;
+        gap: 1em;
+    }
+
+    .app article {
+        max-width: 25rem;
+        margin-inline: auto;
+        margin-top: 4em;
+        flex-direction: column;
+        justify-content: center;
+        min-height: auto;
+    }
+}
